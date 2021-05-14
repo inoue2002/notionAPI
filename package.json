@@ -1,0 +1,24 @@
+{
+  "name": "notionAPI",
+  "version": "1.0.0",
+  "description": "notionAPIをいじいじする",
+  "main": "indec.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inoue2002/notionAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inoue2002/notionAPI/issues"
+  },
+  "homepage": "https://github.com/inoue2002/notionAPI#readme",
+  "dependencies": {
+    "@notionhq/client": "^0.1.3",
+    "dotenv": "^9.0.2"
+  }
+}
