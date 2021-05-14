@@ -15,22 +15,10 @@ async function main() {
       await usersListFunc();
       break;
     case "create_page":
-      await notion.request({
-        path: "pages",
-        method: "POST",
-        body: {
-          parent: { database_id: process.argv[3] },
-          properties: {
-            Name: [
-              {
-                text: {
-                  content: "hoge",
-                },
-              },
-            ],
-          },
-        },
-      });
+      await createPageFunc();
+      break;
+    case "query":
+      await queryFunc();
       break;
   }
 }
@@ -49,4 +37,31 @@ async function usersListFunc() {
       console.error(error);
     }
   }
+}
+async function createPageFunc() {
+  await notion.request({
+    path: "pages",
+    method: "POST",
+    body: {
+      parent: { database_id: process.argv[3] },
+      properties: {
+        Name: [
+          {
+            text: {
+              content: `${process.argv[4]}`,
+            },
+          },
+        ],
+      },
+    },
+  });
+}
+async function queryFunc() {
+  //条件を指定せず全て取得する
+  const request_payload = {
+    path: "databases/" + process.argv[3] + "/query",
+    method: "POST",
+  };
+  const current_pages = await notion.request(request_payload);
+  console.log(current_pages.results);
 }
