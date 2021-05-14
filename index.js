@@ -12,7 +12,25 @@ async function main() {
   //コマンドライン引数に応じて処理を行う
   switch (process.argv[2]) {
     case "users":
-        await usersListFunc()
+      await usersListFunc();
+      break;
+    case "create_page":
+      await notion.request({
+        path: "pages",
+        method: "POST",
+        body: {
+          parent: { database_id: process.argv[3] },
+          properties: {
+            Name: [
+              {
+                text: {
+                  content: "hoge",
+                },
+              },
+            ],
+          },
+        },
+      });
       break;
   }
 }
