@@ -18,7 +18,7 @@ notionAPIをいじいじする
 ボードにつかえた
 `$ node index.js scan {{table_Id}}`
 ## テーブルの特定の項目を変更する
-`$ node index.js update {{table_Id}} {{page_Id}}`
+`$ node index.js update  {{page_Id}} {{table_Id}}`
 ## dbからプロパティと項目が一致をクエリ
 `$ node index.js db_query {{table_Id}} {{property_name}} {{検索したい値(テキスト)}}`
 ## ページの詳細情報を取得する
